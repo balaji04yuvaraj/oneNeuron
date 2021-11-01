@@ -5,12 +5,23 @@ import joblib # FOR SAVING MY MODEL AS A BINARY FILE
 from matplotlib.colors import ListedColormap
 import os
 plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
+
 def prepare_data(df):
-  X = df.drop("y", axis=1)
 
-  y = df["y"]
+    """it is used to seperate the dependent and independent features 
+       
 
-  return X, y
+    Args:
+        df ([pd.DataFrame]): [Its the pandas dataset]
+
+    Returns:
+        [tuple]: [It returns the tuples of dependent and independent variables]
+    """
+    X = df.drop("y", axis=1)
+
+    y = df["y"]
+
+    return X, y
 
 def save_model(model, filename):
   model_dir = "models"
